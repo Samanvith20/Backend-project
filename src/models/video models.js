@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+import  mongooseaggregatepaginatev2  from "mongoose-aggregate-paginate-v2";
+// handle pagination more easily.(Mongoose plugin)
 const videoSchema = mongoose.Schema({
     videoFile: {
         type: String, //cloudinary url
@@ -33,4 +35,5 @@ const videoSchema = mongoose.Schema({
         ref: "User"
     }
 },{timestamps:true});
+videoSchema.plugin(mongooseaggregatepaginatev2);
 export const Video=mongoose.model("Video",videoSchema);
