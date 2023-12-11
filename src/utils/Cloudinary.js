@@ -20,3 +20,4 @@ cloudinary.config({
          return null
     }
   }
+  export {Cloudinary}

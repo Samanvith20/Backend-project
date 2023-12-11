@@ -4,7 +4,8 @@ class ApiError extends Error
         constructor(statusCode,
         message= "Something went wrong",
         errors = [],
-        stack = "")
+        stack = ""
+        )
         {
        super(message);
        // Calls the constructor of the parent Error class and sets the error message

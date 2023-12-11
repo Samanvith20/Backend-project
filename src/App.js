@@ -8,16 +8,16 @@ const app = express();
         credentials: true,
         //  Indicates whether the server should include credentials (such as cookies or HTTP authentication) in the CORS request.
     }));
-app.use(cookieParser());
+      app.use(cookieParser());
 //cookie-parser is middleware for Express.js that parses and populates the req.cookies object with the cookies sent in the HTTP request.
-app.use(express.json({limit: "30mb", extended: true}));
+       app.use(express.json({limit: "30mb", extended: true}));
 //  express.json() is a method inbuilt in express to recognize the incoming Request Object as a JSON Object.
-app.use(express.urlencoded({limit: "30mb", extended: true}));
+       app.use(express.urlencoded({limit: "30mb", extended: true}));
 //  express.urlencoded() is a method inbuilt in express to recognize the incoming Request Object as strings or arrays.
-app.use(express.static("public"));
+        app.use(express.static("public"));
 // express.static() is a built-in middleware function in Express. It serves static files and is based on serve-static.
 // import routes
-import userRouter from "./routes/user.routes.js";
+        import userRouter from "./routes/user.routes.js";
 // routes declaration
-app.use("/api/v1/users", userRouter);
+        app.use("/api/v1/users", userRouter);
  export {app}
