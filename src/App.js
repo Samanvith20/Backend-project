@@ -1,7 +1,7 @@
-import { Express } from "express";
+import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-const app = Express();
+const app = express();
  app.use(cors({
         origin: "process.env.CLIENT_URL",
         //  Necessary if your frontend and backend are hosted on different domains, and you want to allow or restrict cross-origin requests.
@@ -16,4 +16,8 @@ app.use(express.urlencoded({limit: "30mb", extended: true}));
 //  express.urlencoded() is a method inbuilt in express to recognize the incoming Request Object as strings or arrays.
 app.use(express.static("public"));
 // express.static() is a built-in middleware function in Express. It serves static files and is based on serve-static.
+// import routes
+import userRouter from "./routes/user.routes.js";
+// routes declaration
+app.use("/api/v1/users", userRouter);
  export {app}
